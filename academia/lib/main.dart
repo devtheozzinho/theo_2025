@@ -1,8 +1,11 @@
 import 'package:academia/login.dart';
 import 'package:flutter/material.dart';
+import './user_name.dart';
 
 void main() {
   runApp(const MyApp());
+  String username = "admin";
+  String password = "1234";
 }
 
 class MyApp extends StatelessWidget {
@@ -11,10 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Aluguel de carro',
+      title: 'Placa de carro app',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
-        useMaterial3: true,
+        primarySwatch: Colors.blue,
       ),
       home: LoginPage(),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './user_name.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -25,6 +26,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 ElevatedButtomApp(),
+                CadastroApp(),
               ],
             ),
           ),
@@ -44,7 +46,8 @@ class ElevatedButtomApp extends StatelessWidget {
         Padding(padding: EdgeInsets.all(14)),
         ElevatedButton.icon(
           onPressed: () {
-            print('Botão pressionado');
+            loguin('admin', '123');
+            print('deu Certo');
           },
           icon: Icon(
             Icons.login,
@@ -73,5 +76,29 @@ class GradientApp extends StatelessWidget {
           ),
         ),
         child: SizedBox.expand());
+  }
+}
+
+class CadastroApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton.icon(
+        onPressed: () {
+          print('botão pressionado');
+        },
+        icon: Icon(Icons.person_add, color: Colors.white),
+        label: Text('Cadastre-se'),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: Colors.green,
+          foregroundColor: Colors.white,
+          padding: EdgeInsets.symmetric(vertical: 10),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
   }
 }
