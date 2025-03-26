@@ -10,6 +10,7 @@ class MeuAplicativo extends StatelessWidget {
         title: Text('Alugator'),
         centerTitle: true,
         foregroundColor: Colors.black,
+        backgroundColor: Colors.blue,
       ),
       body: Stack(
         children: [
