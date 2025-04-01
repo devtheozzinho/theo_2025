@@ -7,7 +7,7 @@ class MeuAplicativo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Alugator'),
+        title: Text('Rent Car'),
         centerTitle: true,
         foregroundColor: Colors.black,
         backgroundColor: Colors.blue,
