@@ -4,6 +4,7 @@ import './login/login_controller.dart/formulario.dart';
 
 void main() {
   runApp(const MyApp());
+  print('oi');
 }
 
 class MyApp extends StatelessWidget {
