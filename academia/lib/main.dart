@@ -1,11 +1,5 @@
 import 'package:academia/login.dart';
-import 'package:flutter/material.dart';
-import './user_name.dart';
-
-void main() {
-  runApp(const MyApp());
-  String username = "admin";
-  String password = "1234";
+import 'package:flutter/material.dart'; 
 }
 
 class MyApp extends StatelessWidget {
@@ -16,9 +10,3 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Placa de carro app',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: LoginPage(),
-    );
-  }
-}
