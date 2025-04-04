@@ -1,43 +1,68 @@
+import 'package:academia/login/login_controller/formulario.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'widgets/icon.dart';
+import './widgets/Gradient.dart';
+// import 'package:material_color_utilities/material_color_utilities.dart';
 
 class MeuAplicativo extends StatelessWidget {
   const MeuAplicativo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Rent Car'),
-        centerTitle: true,
-        foregroundColor: Colors.black,
-        backgroundColor: Colors.blue,
-      ),
-      body: Stack(
-        children: [
-          GradientApp(),
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                    decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'enter your email please'),
-                    textAlign: TextAlign.center),
-                SizedBox(height: 16),
-                TextFormField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'enter your password please'),
-                  textAlign: TextAlign.center,
-                ),
-                SizedBox(height: 16),
-                ElevatedButtomApp(),
-                CadastroApp(),
-              ],
+    return Material(
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        appBar: AppBar(
+          title: Text(
+            'Rent Car',
+            style: GoogleFonts.poppins(
+              fontSize: 44,
             ),
           ),
-        ],
+          centerTitle: true,
+          foregroundColor: Colors.black,
+          backgroundColor: Colors.transparent,
+        ),
+        body: Stack(
+          children: [
+            GradientApp(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconCar(),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Insira seu Email por favor',
+                        ),
+                        textAlign: TextAlign.center),
+                    SizedBox(height: 16),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Insira sua senha por favor',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    ElevatedButtomApp(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    CadastroApp(),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -52,41 +77,29 @@ class ElevatedButtomApp extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Padding(padding: EdgeInsets.all(14)),
+        Padding(
+          padding: EdgeInsets.all(16),
+        ),
         ElevatedButton.icon(
-          onPressed: () {
-            // loguin('admin', '123');
-            print('deu Certo');
-          },
+          onPressed: () {},
           icon: Icon(
             Icons.login,
-            color: Colors.black,
+            color: Colors.white,
           ),
-          label: Text('LOGIN'),
+          label: Text(
+            'Entrar',
+          ),
           style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black, backgroundColor: Colors.blue),
+            minimumSize: Size(150, 40),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            foregroundColor: Colors.white,
+            backgroundColor: Color(0xFF808080),
+          ),
         ),
       ],
     );
-  }
-}
-
-class GradientApp extends StatelessWidget {
-  const GradientApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [Colors.blue, Colors.white],
-          ),
-        ),
-        child: SizedBox.expand());
   }
 }
 
@@ -96,15 +109,25 @@ class CadastroApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: double.infinity,
+      height: 40,
+      width: 150,
       child: ElevatedButton.icon(
         onPressed: () {
-          print('botão pressionado');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Formulario(),
+            ),
+          );
         },
         icon: Icon(Icons.person_add, color: Colors.white),
-        label: Text('Cadastre-se'),
+        label: Text(
+          'Cadastre-se',
+        ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.green,
+          backgroundColor: Color(
+            0xFF808080,
+          ),
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(
