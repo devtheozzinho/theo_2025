@@ -1,12 +1,26 @@
-import 'package:academia/login/login_controller/formulario.dart';
+import 'package:academia/login/controller/formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/icon.dart';
 import './widgets/Gradient.dart';
+import './controller/user_name.dart';
 // import 'package:material_color_utilities/material_color_utilities.dart';
 
-class MeuAplicativo extends StatelessWidget {
-  const MeuAplicativo({Key? key}) : super(key: key);
+class MeuAplicativo extends StatefulWidget {
+  @override
+  _MeuAplicativoState createState() => _MeuAplicativoState();
+}
+
+class _MeuAplicativoState extends State<MeuAplicativo> {
+  final TextEditingController emailcontroller = TextEditingController();
+  final TextEditingController passwordcontroller = TextEditingController();
+
+  @override
+  void dispose() {
+    emailcontroller.dispose();
+    passwordcontroller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,24 +49,38 @@ class MeuAplicativo extends StatelessWidget {
                     SizedBox(
                       height: 20,
                     ),
-                    TextFormField(
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Insira seu Email por favor',
-                        ),
-                        textAlign: TextAlign.center),
+                    SizedBox(
+                      width: 280,
+                      child: TextFormField(
+                          controller: emailcontroller,
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
+                            hintText: 'Insira seu Email por favor',
+                          ),
+                          textAlign: TextAlign.center),
+                    ),
                     SizedBox(height: 16),
-                    TextFormField(
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        hintText: 'Insira sua senha por favor',
+                    SizedBox(
+                      width: 280,
+                      child: TextFormField(
+                        controller: passwordcontroller,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(12.0),
+                          ),
+                          hintText: 'Insira sua senha por favor',
+                        ),
+                        textAlign: TextAlign.center,
                       ),
-                      textAlign: TextAlign.center,
                     ),
                     SizedBox(
                       height: 10,
                     ),
-                    ElevatedButtomApp(),
+                    ElevatedButtomApp(
+                        emailcontroller: emailcontroller,
+                        passwordcontroller: passwordcontroller),
                     SizedBox(
                       height: 10,
                     ),
@@ -69,7 +97,14 @@ class MeuAplicativo extends StatelessWidget {
 }
 
 class ElevatedButtomApp extends StatelessWidget {
-  const ElevatedButtomApp({Key? key}) : super(key: key);
+  final TextEditingController? emailcontroller;
+  final TextEditingController? passwordcontroller;
+
+  const ElevatedButtomApp({
+    Key? key,
+    required this.emailcontroller,
+    required this.passwordcontroller,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +116,10 @@ class ElevatedButtomApp extends StatelessWidget {
           padding: EdgeInsets.all(16),
         ),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () {
+            validatorLogin(
+                context, emailcontroller!.text, passwordcontroller!.text);
+          },
           icon: Icon(
             Icons.login,
             color: Colors.white,
