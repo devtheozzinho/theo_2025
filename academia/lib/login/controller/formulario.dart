@@ -105,3 +105,11 @@ class Formulario extends StatelessWidget {
     );
   }
 }
+
+// class ButtomCadastrarUser extends StatelessWidget {
+//   @override
+  
+//   ElevatedButton()
+  
+//   }
+

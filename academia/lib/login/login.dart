@@ -42,50 +42,52 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
           children: [
             GradientApp(
               child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconCar(),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    SizedBox(
-                      width: 280,
-                      child: TextFormField(
-                          controller: emailcontroller,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      IconCar(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      SizedBox(
+                        width: 280,
+                        child: TextFormField(
+                            controller: emailcontroller,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(12.0),
+                              ),
+                              hintText: 'Insira seu Email por favor',
+                            ),
+                            textAlign: TextAlign.center),
+                      ),
+                      SizedBox(height: 16),
+                      SizedBox(
+                        width: 280,
+                        child: TextFormField(
+                          controller: passwordcontroller,
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(12.0),
                             ),
-                            hintText: 'Insira seu Email por favor',
+                            hintText: 'Insira sua senha por favor',
                           ),
-                          textAlign: TextAlign.center),
-                    ),
-                    SizedBox(height: 16),
-                    SizedBox(
-                      width: 280,
-                      child: TextFormField(
-                        controller: passwordcontroller,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
-                          hintText: 'Insira sua senha por favor',
+                          textAlign: TextAlign.center,
                         ),
-                        textAlign: TextAlign.center,
                       ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButtomApp(
-                        emailcontroller: emailcontroller,
-                        passwordcontroller: passwordcontroller),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    CadastroApp(),
-                  ],
+                      SizedBox(
+                        height: 10,
+                      ),
+                      ElevatedButtomApp(
+                          emailcontroller: emailcontroller,
+                          passwordcontroller: passwordcontroller),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      CadastroApp(),
+                    ],
+                  ),
                 ),
               ),
             ),
