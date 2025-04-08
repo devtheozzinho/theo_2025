@@ -1,4 +1,4 @@
-import 'package:academia/login/controller/formulario.dart';
+import 'package:academia/login/form/formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/icon.dart';
@@ -42,51 +42,54 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
           children: [
             GradientApp(
               child: Center(
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconCar(),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: 280,
-                        child: TextFormField(
-                            controller: emailcontroller,
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconCar(),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        SizedBox(
+                          width: 280,
+                          child: TextFormField(
+                              controller: emailcontroller,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                                hintText: 'Insira seu Email por favor',
+                              ),
+                              textAlign: TextAlign.center),
+                        ),
+                        SizedBox(height: 16),
+                        SizedBox(
+                          width: 280,
+                          child: TextFormField(
+                            controller: passwordcontroller,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
-                              hintText: 'Insira seu Email por favor',
+                              hintText: 'Insira sua senha por favor',
                             ),
-                            textAlign: TextAlign.center),
-                      ),
-                      SizedBox(height: 16),
-                      SizedBox(
-                        width: 280,
-                        child: TextFormField(
-                          controller: passwordcontroller,
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            hintText: 'Insira sua senha por favor',
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
                         ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      ElevatedButtomApp(
-                          emailcontroller: emailcontroller,
-                          passwordcontroller: passwordcontroller),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      CadastroApp(),
-                    ],
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ElevatedButtomApp(
+                            emailcontroller: emailcontroller,
+                            passwordcontroller: passwordcontroller),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        CadastroApp(),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -165,9 +168,7 @@ class CadastroApp extends StatelessWidget {
           'Cadastre-se',
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(
-            0xFF808080,
-          ),
+          backgroundColor: Color.fromARGB(255, 128, 128, 128),
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(
