@@ -26,6 +26,12 @@ class Formulario extends StatelessWidget {
                 Padding(padding: EdgeInsets.all(10)),
                 TextFormField(
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: EdgeInsets.all(6),
                     labelText: 'Nome completo',
                   ),
@@ -35,6 +41,12 @@ class Formulario extends StatelessWidget {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: EdgeInsets.all(6),
                     labelText: 'Email',
                   ),
@@ -44,6 +56,12 @@ class Formulario extends StatelessWidget {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: EdgeInsets.all(6),
                     labelText: 'Empresa',
                   ),
@@ -54,6 +72,12 @@ class Formulario extends StatelessWidget {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: EdgeInsets.all(6),
                     labelText: 'CPF',
                   ),
@@ -63,11 +87,16 @@ class Formulario extends StatelessWidget {
                 ),
                 TextFormField(
                   decoration: InputDecoration(
+                    labelStyle: TextStyle(
+                      color: Colors.black,
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
                     contentPadding: EdgeInsets.all(6),
                     labelText: 'Senha',
                   ),
                 ),
-                ElevatedButtomApp(),
               ],
             ),
           ),
@@ -76,3 +105,11 @@ class Formulario extends StatelessWidget {
     );
   }
 }
+
+// class ButtomCadastrarUser extends StatelessWidget {
+//   @override
+  
+//   ElevatedButton()
+  
+//   }
+
