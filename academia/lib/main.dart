@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './login/login.dart';
-import 'login/controller/formulario.dart';
+import 'login/form/formulario.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
