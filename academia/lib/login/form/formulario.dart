@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/gradient.dart';
-import '../widgets/calendar.dart';
+import '../form/form_controller.dart';
 
 class Formulario extends StatelessWidget {
   const Formulario({super.key});
@@ -19,13 +19,16 @@ class Formulario extends StatelessWidget {
       backgroundColor: Colors.white,
       body: GradientApp(
         child: Padding(
-          padding: EdgeInsets.only(top: kToolbarHeight + 4),
+          padding: EdgeInsets.only(
+            top: kToolbarHeight + 4,
+          ),
           child: SingleChildScrollView(
             child: Flexible(
               child: Column(
                 children: [
                   Padding(padding: EdgeInsets.all(10)),
                   TextFormField(
+                    controller: nomeController,
                     decoration: InputDecoration(
                       labelStyle: TextStyle(
                         color: Colors.black,
@@ -44,6 +47,7 @@ class Formulario extends StatelessWidget {
                     height: 12,
                   ),
                   TextFormField(
+                    controller: idadeController,
                     decoration: InputDecoration(
                       labelStyle: TextStyle(
                         color: Colors.black,
@@ -65,6 +69,7 @@ class Formulario extends StatelessWidget {
                     height: 12,
                   ),
                   TextFormField(
+                    controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       labelStyle: TextStyle(
@@ -102,6 +107,7 @@ class Formulario extends StatelessWidget {
                     height: 12,
                   ),
                   TextFormField(
+                    controller: cpfController,
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       labelStyle: TextStyle(
@@ -121,6 +127,7 @@ class Formulario extends StatelessWidget {
                     height: 12,
                   ),
                   TextFormField(
+                    controller: senhaController,
                     keyboardType: TextInputType.visiblePassword,
                     decoration: InputDecoration(
                       labelStyle: TextStyle(
@@ -161,7 +168,9 @@ class ConfirFormUSer extends StatelessWidget {
           Icons.login,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          validatorCadastro(context);
+        },
         label: Text(
           'Confirmar cadastro',
         ),

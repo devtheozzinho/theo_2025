@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../form/form_controller.dart';
 
 class User {
   String email = 'admin@email.com';
@@ -9,32 +10,18 @@ class User {
 
 void validatorLogin(BuildContext context, String email, String password) {
   if (email.isEmpty || !email.contains('@')) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Por favor insira um e-mail válido'),
-      ),
-    );
+    showMessage('Por favor insira um e-mail válido', context);
     return;
   }
   if (password.isEmpty || password.length < 6) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Por favor insira a senha correta'),
-      ),
-    );
+    showMessage('Por favor insira a senha correta', context);
     return;
   }
   if (email == 'admin@email.com' && password == '123456') {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Login realizado com sucesso'),
-      ),
-    );
+    showMessage('Login realizado com sucesso', context);
+    return;
   } else {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Login inválido, por favor revise os campos'),
-      ),
-    );
+    showMessage('Login inválido, por favor revise os campos', context);
+    return;
   }
 }
