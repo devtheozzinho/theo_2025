@@ -88,6 +88,10 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
                           height: 10,
                         ),
                         CadastroApp(),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        ButtomForgetPassword(),
                       ],
                     ),
                   ),
@@ -173,6 +177,25 @@ class CadastroApp extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class ButtomForgetPassword extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: TextButton(
+        onPressed: () {},
+        child: Text('Esqueci minha senha'),
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          textStyle: TextStyle(
+            decoration: TextDecoration.underline,
           ),
         ),
       ),

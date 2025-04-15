@@ -24,6 +24,7 @@ class Formulario extends StatelessWidget {
           ),
           child: SingleChildScrollView(
             child: Flexible(
+              flex: 1,
               child: Column(
                 children: [
                   Padding(padding: EdgeInsets.all(10)),
