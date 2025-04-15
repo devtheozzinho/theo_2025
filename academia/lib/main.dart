@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './login/login.dart';
+import 'cards/page.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: MeuAplicativo(),
+      home: CardProduct(),
     );
   }
 }
