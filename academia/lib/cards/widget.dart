@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
 import '../login/widgets/gradient.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'Model/card_model.dart';
 
 class CardProduct extends StatefulWidget {
+  final DetailsCar detalhes;
   @override
   _CardProductState createState() => _CardProductState();
+
+  const CardProduct({super.key, required this.detalhes});
 }
 
 class _CardProductState extends State<CardProduct> {
   int currentIndex = 0;
 
-  final List<String> cardContents = [
-    'Conteudo do card 1'
-        'Conteudo do card 2'
-        'Conteudo do card 3'
-  ];
-
-  void _nextCar() {
-    setState(() {
-      currentIndex = (currentIndex + 1) % cardContents.length;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
+    final detalhes = widget.detalhes;
     return Material(
       child: Scaffold(
         extendBodyBehindAppBar: true,
@@ -81,13 +74,18 @@ class _CardProductState extends State<CardProduct> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('Vidro elétrico'),
                                 SizedBox(height: 4),
-                                Text('12BC4EF'),
+                                Text(detalhes.arcondicionado == true
+                                    ? 'Ar-condicionado'
+                                    : ''),
                                 SizedBox(height: 4),
-                                Text('4 pessoas'),
+                                Text(detalhes.automatico == true
+                                    ? 'Automatico'
+                                    : ''),
                                 SizedBox(height: 4),
-                                Text('4 portas')
+                                Text(detalhes.freioabs == true ? 'ABS' : ''),
+                                SizedBox(height: 4),
+                                Text(detalhes.lugares == 4 ? '4 lugares' : '')
                               ],
                             ),
                           ),
@@ -96,13 +94,14 @@ class _CardProductState extends State<CardProduct> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text('ABS'),
+                                Text(detalhes.portas == 4 ? '4 portas' : ''),
                                 SizedBox(height: 4),
-                                Text('Automático'),
+                                Text(
+                                    detalhes.placa == 'ABC123' ? 'ABC123' : ''),
                                 SizedBox(height: 4),
-                                Text('Trava elétrica'),
-                                SizedBox(height: 4),
-                                Text('Ar-condicionado')
+                                Text(detalhes.vidroletrico == true
+                                    ? 'Vidro elétrico'
+                                    : ''),
                               ],
                             ),
                           )

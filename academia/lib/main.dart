@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import './login/login.dart';
-import 'cards/page.dart';
+
+import 'cards/widget.dart';
+import './cards/Model/card_model.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -12,6 +13,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Map<String, dynamic> jsonCarro = {
+      "id": 1,
+      "portas": 4,
+      "placa": "ABC123",
+      "automatico": true,
+      "arcondicionado": true,
+      "travaeletrica": true,
+      "lugares": 4,
+      "freioabs": true
+    };
+
+    final cardDetalhes = DetailsCar.fromJson(jsonCarro);
+
     return MaterialApp(
       title: 'Rent car',
       theme: ThemeData(
@@ -19,54 +33,8 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       debugShowCheckedModeBanner: false,
-      home: CardProduct(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
+      home: CardProduct(
+        detalhes: cardDetalhes,
       ),
     );
   }
