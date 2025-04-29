@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'cards/widget.dart';
-import './cards/Model/card_model.dart';
+import 'cards/Model/car_model.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -15,16 +14,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final Map<String, dynamic> jsonCarro = {
       "id": 1,
-      "portas": 4,
-      "placa": "ABC123",
-      "automatico": true,
-      "arcondicionado": true,
-      "travaeletrica": true,
-      "lugares": 4,
-      "freioabs": true
+      "placa": "ABC1234",
+      "name": "Chevrolet Onix",
+      "category": "Categoria B - Compacto com Ar",
+      "detalhes": {
+        "freioabs": true,
+        "lugares": 4,
+        "arcondicionado": true,
+        "vidroletrico": true,
+        "automatico": true,
+        "portas": 4
+      }
     };
 
-    final cardDetalhes = DetailsCar.fromJson(jsonCarro);
+    final Car car = Car.fromJson(jsonCarro);
 
     return MaterialApp(
       title: 'Rent car',
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: CardProduct(
-        detalhes: cardDetalhes,
+        detalhes: car,
       ),
     );
   }
