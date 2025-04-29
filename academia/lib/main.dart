@@ -5,6 +5,7 @@ import 'cards/Model/car_model.dart';
 
 void main() {
   runApp(const MyApp());
+  print('oi');
 }
 
 class MyApp extends StatelessWidget {
