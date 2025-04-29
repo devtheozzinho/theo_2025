@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../login/widgets/gradient.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'Model/card_model.dart';
+import 'Model/car_model.dart';
 
 class CardProduct extends StatefulWidget {
-  final DetailsCar detalhes;
+  final Car detalhes;
   @override
   _CardProductState createState() => _CardProductState();
 
@@ -16,14 +16,16 @@ class _CardProductState extends State<CardProduct> {
 
   @override
   Widget build(BuildContext context) {
-    final detalhes = widget.detalhes;
+    final car = widget.detalhes;
+    final details = car.detalhes;
     return Material(
       child: Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: Text(
             'Modelos',
-            style: GoogleFonts.poppins(fontSize: 32, color: Colors.black),
+            style: GoogleFonts.poppins(
+                fontSize: 32, color: Colors.black, fontWeight: FontWeight.w600),
           ),
           centerTitle: true,
           foregroundColor: Colors.black,
@@ -37,13 +39,16 @@ class _CardProductState extends State<CardProduct> {
               borderRadius: BorderRadius.circular(12),
             ),
             child: Column(
+              mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ListTile(
-                  title: Text('Chevrolet Onix 2020 vermelho'),
-                  subtitle: Text('Categoria B - Compacto Com Ar'),
-                  titleTextStyle:
-                      GoogleFonts.poppins(fontSize: 18, color: Colors.black),
+                  title: Text(car.name ?? 'Sem nome'),
+                  subtitle: Text(car.category ?? 'Sem categoria'),
+                  titleTextStyle: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 45,
@@ -55,7 +60,7 @@ class _CardProductState extends State<CardProduct> {
                   child: Image.network(
                     'https://st4.depositphotos.com/21932260/23647/i/1600/depositphotos_236476052-stock-illustration-car-white-background.jpg',
                     alignment: Alignment.center,
-                    height: 150,
+                    height: 130,
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
@@ -75,17 +80,16 @@ class _CardProductState extends State<CardProduct> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 SizedBox(height: 4),
-                                Text(detalhes.arcondicionado == true
-                                    ? 'Ar-condicionado'
-                                    : ''),
+                                details?.arcondicionado == true
+                                    ? Text('Ar-condicionado')
+                                    : SizedBox(height: 4),
                                 SizedBox(height: 4),
-                                Text(detalhes.automatico == true
-                                    ? 'Automatico'
-                                    : ''),
-                                SizedBox(height: 4),
-                                Text(detalhes.freioabs == true ? 'ABS' : ''),
-                                SizedBox(height: 4),
-                                Text(detalhes.lugares == 4 ? '4 lugares' : '')
+                                details?.freioabs == true
+                                    ? Text('Freio ABS')
+                                    : SizedBox(height: 4),
+                                details?.lugares == 4 || details?.lugares == 5
+                                    ? Text('4 lugares')
+                                    : SizedBox(height: 4)
                               ],
                             ),
                           ),
@@ -94,14 +98,16 @@ class _CardProductState extends State<CardProduct> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Text(detalhes.portas == 4 ? '4 portas' : ''),
+                                Text('Placa: ${car.placa}'),
                                 SizedBox(height: 4),
-                                Text(
-                                    detalhes.placa == 'ABC123' ? 'ABC123' : ''),
-                                SizedBox(height: 4),
-                                Text(detalhes.vidroletrico == true
-                                    ? 'Vidro elétrico'
-                                    : ''),
+                                details?.automatico == true
+                                    ? Text('Câmbio Automático')
+                                    : SizedBox(height: 4),
+                                details?.vidroletrico == true
+                                    ? Text('Vidros Elétricos')
+                                    : SizedBox(
+                                        height: 4,
+                                      )
                               ],
                             ),
                           )
