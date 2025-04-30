@@ -1,12 +1,12 @@
+import 'package:academia/login/login.dart';
 import 'package:flutter/material.dart';
 import 'cards/widget.dart';
 import 'cards/Model/car_model.dart';
+import './form/formulario.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
-  print('oi');
-  print('oi');
 }
 
 class MyApp extends StatelessWidget {
@@ -32,15 +32,19 @@ class MyApp extends StatelessWidget {
     final Car car = Car.fromJson(jsonCarro);
 
     return MaterialApp(
-      title: 'Rent car',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-        useMaterial3: true,
-      ),
-      debugShowCheckedModeBanner: false,
-      home: CardProduct(
-        detalhes: car,
-      ),
-    );
+        title: 'Rent car',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+          useMaterial3: true,
+        ),
+        debugShowCheckedModeBanner: false,
+        initialRoute: 'homepage',
+        routes: {
+          'homepage': (context) => MeuAplicativo(),
+          '/form': (context) => Formulario(),
+          'cards': (context) => CardProduct(
+                detalhes: car,
+              ),
+        });
   }
 }
