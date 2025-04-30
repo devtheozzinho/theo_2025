@@ -1,9 +1,10 @@
-import 'package:academia/login/form/formulario.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'widgets/icon.dart';
 import './widgets/Gradient.dart';
 import './controller/user_name.dart';
+import '../form/form_controller.dart';
+import '../form/formulario.dart';
 // import 'package:material_color_utilities/material_color_utilities.dart';
 
 class MeuAplicativo extends StatefulWidget {
@@ -126,8 +127,9 @@ class ElevatedButtomApp extends StatelessWidget {
         ),
         ElevatedButton.icon(
           onPressed: () {
-            validatorLogin(
-                context, emailcontroller!.text, passwordcontroller!.text);
+            // validatorLogin(
+            //     context, emailcontroller!.text, passwordcontroller!.text);
+            Navigator.pushNamed(context, '/cards');
           },
           icon: Icon(
             Icons.login,
@@ -160,12 +162,7 @@ class CadastroApp extends StatelessWidget {
       width: 150,
       child: ElevatedButton.icon(
         onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => Formulario(),
-            ),
-          );
+          Navigator.pushNamed(context, '/form');
         },
         icon: Icon(Icons.person_add, color: Colors.white),
         label: Text(
