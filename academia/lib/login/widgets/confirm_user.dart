@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import '../../form/form_controller.dart';
+// import '../../form/form_controller.dart';
 
 class ConfirFormUSer extends StatelessWidget {
+  const ConfirFormUSer({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -12,7 +14,7 @@ class ConfirFormUSer extends StatelessWidget {
           color: Colors.white,
         ),
         onPressed: () {
-          Navigator.pushNamed(context, 'cards');
+          Navigator.pushNamed(context, '/cards');
           // validatorCadastro(context);
         },
         label: Text(
@@ -24,7 +26,7 @@ class ConfirFormUSer extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           foregroundColor: Colors.white,
-          backgroundColor: Color(0xFF808080),
+          backgroundColor: Color.fromARGB(255, 39, 38, 73),
         ),
       ),
     );

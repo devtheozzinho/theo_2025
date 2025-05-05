@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import '../login/widgets/gradient.dart';
 import 'form_controller.dart';
-import '../login/view/class.dart';
+import '../login/widgets/confirm_user.dart';
 
 class Formulario extends StatelessWidget {
   const Formulario({super.key});
@@ -14,6 +13,7 @@ class Formulario extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           'Cadastro de Usuário',
+          style: TextStyle(fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.transparent,
         centerTitle: true,

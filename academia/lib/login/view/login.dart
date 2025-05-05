@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'widgets/icon.dart';
-import './widgets/Gradient.dart';
-import './controller/user_name.dart';
-import '../form/form_controller.dart';
-import '../form/formulario.dart';
+import '../widgets/icon.dart';
+import '../widgets/Gradient.dart';
+// import '../controller/user_name.dart';
+// import '../../form/form_controller.dart';
+// import '../../form/formulario.dart';
+import '../widgets/elevatd_button.dart';
+import '../widgets/forget_password.dart';
+import '../widgets/cadastro_app.dart';
+import '../view/forget_password.dart';
 // import 'package:material_color_utilities/material_color_utilities.dart';
 
 class MeuAplicativo extends StatefulWidget {
+  const MeuAplicativo({super.key});
+
   @override
   _MeuAplicativoState createState() => _MeuAplicativoState();
 }
@@ -49,7 +55,11 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconCar(),
+                        IconApp(
+                          cor: Colors.black,
+                          tamanho: 200,
+                          icone: Icons.directions_car,
+                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -100,100 +110,6 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class ElevatedButtomApp extends StatelessWidget {
-  final TextEditingController? emailcontroller;
-  final TextEditingController? passwordcontroller;
-
-  const ElevatedButtomApp({
-    Key? key,
-    required this.emailcontroller,
-    required this.passwordcontroller,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: EdgeInsets.all(16),
-        ),
-        ElevatedButton.icon(
-          onPressed: () {
-            // validatorLogin(
-            //     context, emailcontroller!.text, passwordcontroller!.text);
-            Navigator.pushNamed(context, '/cards');
-          },
-          icon: Icon(
-            Icons.login,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Entrar',
-          ),
-          style: ElevatedButton.styleFrom(
-            minimumSize: Size(150, 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            foregroundColor: Colors.white,
-            backgroundColor: Color(0xFF808080),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CadastroApp extends StatelessWidget {
-  const CadastroApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 40,
-      width: 150,
-      child: ElevatedButton.icon(
-        onPressed: () {
-          Navigator.pushNamed(context, '/form');
-        },
-        icon: Icon(Icons.person_add, color: Colors.white),
-        label: Text(
-          'Cadastre-se',
-        ),
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromARGB(255, 128, 128, 128),
-          foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(vertical: 10),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class ButtomForgetPassword extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      child: TextButton(
-        onPressed: () {},
-        child: Text('Esqueci minha senha'),
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          textStyle: TextStyle(
-            decoration: TextDecoration.underline,
-          ),
         ),
       ),
     );

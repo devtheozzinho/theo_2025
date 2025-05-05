@@ -1,8 +1,11 @@
-import 'package:academia/login/login.dart';
+import 'package:academia/login/view/login.dart';
+import 'package:academia/login/widgets/forget_password.dart';
 import 'package:flutter/material.dart';
 import 'cards/widget.dart';
 import 'cards/Model/car_model.dart';
 import './form/formulario.dart';
+import './login/view/forget_password.dart';
+
 // import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -42,9 +45,8 @@ class MyApp extends StatelessWidget {
         routes: {
           'homepage': (context) => MeuAplicativo(),
           '/form': (context) => Formulario(),
-          'cards': (context) => CardProduct(
-                detalhes: car,
-              ),
+          '/cards': (context) => CardProduct(detalhes: car),
+          '/forgetPassword': (context) => ForgetPassword(),
         });
   }
 }
