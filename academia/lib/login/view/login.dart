@@ -2,15 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/icon.dart';
 import '../widgets/Gradient.dart';
-import '../controller/user_name.dart';
-import '../../form/form_controller.dart';
-import '../../form/formulario.dart';
-import '../widgets/elevatdButton.dart';
-import '../widgets/forgetPassword.dart';
-import '../widgets/cadastroApp.dart';
+// import '../controller/user_name.dart';
+// import '../../form/form_controller.dart';
+// import '../../form/formulario.dart';
+import '../widgets/elevatd_button.dart';
+import '../widgets/forget_password.dart';
+import '../widgets/cadastro_app.dart';
+import '../view/forget_password.dart';
 // import 'package:material_color_utilities/material_color_utilities.dart';
 
 class MeuAplicativo extends StatefulWidget {
+  const MeuAplicativo({super.key});
+
   @override
   _MeuAplicativoState createState() => _MeuAplicativoState();
 }
@@ -52,7 +55,11 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconCar(),
+                        IconApp(
+                          cor: Colors.black,
+                          tamanho: 200,
+                          icone: Icons.directions_car,
+                        ),
                         SizedBox(
                           height: 20,
                         ),
@@ -108,7 +115,3 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
     );
   }
 }
-
-
-
-

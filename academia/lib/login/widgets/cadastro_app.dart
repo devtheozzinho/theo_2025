@@ -17,7 +17,7 @@ class CadastroApp extends StatelessWidget {
           'Cadastre-se',
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromARGB(255, 128, 128, 128),
+          backgroundColor: Color.fromARGB(255, 39, 38, 73),
           foregroundColor: Colors.white,
           padding: EdgeInsets.symmetric(vertical: 10),
           shape: RoundedRectangleBorder(

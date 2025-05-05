@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 
-
 class ElevatedButtomApp extends StatelessWidget {
   final TextEditingController? emailcontroller;
   final TextEditingController? passwordcontroller;
 
   const ElevatedButtomApp({
-    Key? key,
+    super.key,
     required this.emailcontroller,
     required this.passwordcontroller,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +33,12 @@ class ElevatedButtomApp extends StatelessWidget {
             'Entrar',
           ),
           style: ElevatedButton.styleFrom(
-            minimumSize: Size(150, 40),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            foregroundColor: Colors.white,
-            backgroundColor: Color(0xFF808080),
-          ),
+              minimumSize: Size(150, 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              foregroundColor: Colors.white,
+              backgroundColor: Color.fromARGB(255, 39, 38, 73)),
         ),
       ],
     );

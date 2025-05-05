@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 class ButtomForgetPassword extends StatelessWidget {
+  const ButtomForgetPassword({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: TextButton(
-        onPressed: () {},
-        child: Text('Esqueci minha senha'),
+        onPressed: () {
+          Navigator.pushNamed(context, '/forgetPassword');
+        },
         style: TextButton.styleFrom(
           padding: EdgeInsets.zero,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
@@ -14,6 +17,7 @@ class ButtomForgetPassword extends StatelessWidget {
             decoration: TextDecoration.underline,
           ),
         ),
+        child: Text('Esqueci minha senha'),
       ),
     );
   }
