@@ -35,18 +35,19 @@ class MyApp extends StatelessWidget {
     final Car car = Car.fromJson(jsonCarro);
 
     return MaterialApp(
-        title: 'Rent car',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
-        debugShowCheckedModeBanner: false,
-        initialRoute: 'homepage',
-        routes: {
-          'homepage': (context) => MeuAplicativo(),
-          '/form': (context) => Formulario(),
-          '/cards': (context) => CardProduct(detalhes: car),
-          '/forgetPassword': (context) => ForgetPassword(),
-        });
+      title: 'Rent car',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: 'homepage',
+      routes: {
+        'homepage': (context) => MeuAplicativo(),
+        '/form': (context) => Formulario(),
+        '/cards': (context) => CardProduct(detalhes: car),
+        '/forgetPassword': (context) => ForgetPassword(),
+      },
+    );
   }
 }
