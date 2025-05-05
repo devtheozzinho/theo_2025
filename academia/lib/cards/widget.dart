@@ -32,108 +32,111 @@ class _CardProductState extends State<CardProduct> {
           backgroundColor: Colors.transparent,
         ),
         body: GradientApp(
-          child: Card(
-            elevation: 8,
-            margin: EdgeInsets.all(24),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                ListTile(
-                  title: Text(car.name ?? 'Sem nome'),
-                  subtitle: Text(car.category ?? 'Sem categoria'),
-                  titleTextStyle: GoogleFonts.poppins(
-                      fontSize: 18,
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500),
-                ),
-                SizedBox(
-                  height: 45,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(15),
+          child: Padding(
+            padding: EdgeInsets.all(30),
+            child: Card(
+              elevation: 8,
+              margin: EdgeInsets.all(24),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ListTile(
+                    title: Text(car.name ?? 'Sem nome'),
+                    subtitle: Text(car.category ?? 'Sem categoria'),
+                    titleTextStyle: GoogleFonts.poppins(
+                        fontSize: 18,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
                   ),
-                  child: Image.network(
-                    'https://st4.depositphotos.com/21932260/23647/i/1600/depositphotos_236476052-stock-illustration-car-white-background.jpg',
-                    alignment: Alignment.center,
-                    height: 130,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
+                  SizedBox(
+                    height: 45,
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(16),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 18,
-                      ),
-                      Row(
-                        children: [
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                SizedBox(height: 4),
-                                details?.arcondicionado == true
-                                    ? Text('Ar-condicionado')
-                                    : SizedBox(height: 4),
-                                SizedBox(height: 4),
-                                details?.freioabs == true
-                                    ? Text('Freio ABS')
-                                    : SizedBox(height: 4),
-                                details?.lugares == 4 || details?.lugares == 5
-                                    ? Text('4 lugares')
-                                    : SizedBox(height: 4)
-                              ],
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Text('Placa: ${car.placa}'),
-                                SizedBox(height: 4),
-                                details?.automatico == true
-                                    ? Text('Câmbio Automático')
-                                    : SizedBox(height: 4),
-                                details?.vidroletrico == true
-                                    ? Text('Vidros Elétricos')
-                                    : SizedBox(
-                                        height: 4,
-                                      )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      ElevatedButton.icon(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 24, vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(15),
+                    ),
+                    child: Image.network(
+                      'https://st4.depositphotos.com/21932260/23647/i/1600/depositphotos_236476052-stock-illustration-car-white-background.jpg',
+                      alignment: Alignment.center,
+                      height: 130,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          height: 18,
                         ),
-                        icon: Icon(Icons.directions_car),
-                        label: Text('Reservar'),
-                      )
-                    ],
-                  ),
-                )
-              ],
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  SizedBox(height: 4),
+                                  details?.arcondicionado == true
+                                      ? Text('Ar-condicionado')
+                                      : SizedBox(height: 4),
+                                  SizedBox(height: 4),
+                                  details?.freioabs == true
+                                      ? Text('Freio ABS')
+                                      : SizedBox(height: 4),
+                                  details?.lugares == 4 || details?.lugares == 5
+                                      ? Text('4 lugares')
+                                      : SizedBox(height: 4)
+                                ],
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text('Placa: ${car.placa}'),
+                                  SizedBox(height: 4),
+                                  details?.automatico == true
+                                      ? Text('Câmbio Automático')
+                                      : SizedBox(height: 4),
+                                  details?.vidroletrico == true
+                                      ? Text('Vidros Elétricos')
+                                      : SizedBox(
+                                          height: 4,
+                                        )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 40,
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 24, vertical: 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                          icon: Icon(Icons.directions_car),
+                          label: Text('Reservar'),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
