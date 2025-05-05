@@ -1,4 +1,4 @@
-import 'package:academia/login/login.dart';
+import 'package:academia/login/view/login.dart';
 import 'package:flutter/material.dart';
 import 'cards/widget.dart';
 import 'cards/Model/car_model.dart';
