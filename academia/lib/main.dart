@@ -1,6 +1,6 @@
 import 'package:academia/firebase_options.dart';
 import 'package:academia/login/view/login.dart';
-import 'package:firebase_core/firebase_core.dart';
+
 import 'package:flutter/material.dart';
 import 'cards/card_car.dart';
 import 'cards/Model/car_model.dart';
