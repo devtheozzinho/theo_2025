@@ -16,7 +16,7 @@ class GradientApp extends StatelessWidget {
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
           colors: [
-            Color.fromARGB(255, 5, 76, 134),
+            Color.fromARGB(255, 118, 189, 248),
             Color.fromARGB(255, 248, 246, 246),
           ],
         ),

@@ -1,14 +1,25 @@
+import 'package:academia/firebase_options.dart';
 import 'package:academia/login/view/login.dart';
-import 'package:academia/login/widgets/forget_password.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'cards/widget.dart';
+import 'cards/card_car.dart';
 import 'cards/Model/car_model.dart';
 import './form/formulario.dart';
 import './login/view/forget_password.dart';
 
 // import 'package:google_fonts/google_fonts.dart';
 
-void main() {
+void main() async {
+  // WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //   options: FirebaseOptions(                                                                ///lembrar de ver isso depois
+  //     apiKey: 'AIzaSyD8FysDzhn_yrVnKhp6_J5i_iEWUguYmBE',
+  //     appId: '1:993754607160:android:c36c72dad7dd138cb400cd',
+  //     messagingSenderId: '993754607160',
+  //     projectId: 'rent-car-original',
+  //     storageBucket: 'rent-car-original.firebasestorage.app',
+  //   ),
+  // );
   runApp(const MyApp());
 }
 
