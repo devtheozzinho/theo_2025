@@ -44,6 +44,19 @@ class ForgetPassword extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    minimumSize: Size(150, 50),
+                    backgroundColor: Color.fromARGB(255, 39, 38, 73),
+                    foregroundColor: Colors.white),
+                onPressed: () {},
+                child: Text(
+                  'Enviar',
+                ),
+              )
             ],
           ),
         ),

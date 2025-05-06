@@ -8,8 +8,6 @@ import '../widgets/Gradient.dart';
 import '../widgets/elevatd_button.dart';
 import '../widgets/forget_password.dart';
 import '../widgets/cadastro_app.dart';
-import '../view/forget_password.dart';
-// import 'package:material_color_utilities/material_color_utilities.dart';
 
 class MeuAplicativo extends StatefulWidget {
   const MeuAplicativo({super.key});
