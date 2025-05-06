@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../login/widgets/gradient.dart';
-import 'form_controller.dart';
+import '../form/controller/form_controller.dart';
 import '../login/widgets/confirm_user.dart';
 
 class Formulario extends StatelessWidget {
