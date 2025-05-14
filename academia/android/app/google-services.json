@@ -1,32 +1,13 @@
 {
   "project_info": {
-    "project_number": "972755965539",
-    "project_id": "fir-7a910",
-    "storage_bucket": "fir-7a910.firebasestorage.app"
+    "project_number": "993754607160",
+    "project_id": "rent-car-original",
+    "storage_bucket": "rent-car-original.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:972755965539:android:96e1ae83b2916910364a56",
-        "android_client_info": {
-          "package_name": "com.blabla.myapp"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyDmeYSRwOzj67qBgEj3LHiuJvmIl_X3KIE"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:972755965539:android:2f9aec8bffa9c036364a56",
+        "mobilesdk_app_id": "1:993754607160:android:c36c72dad7dd138cb400cd",
         "android_client_info": {
           "package_name": "com.example.academia"
         }
@@ -34,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDmeYSRwOzj67qBgEj3LHiuJvmIl_X3KIE"
+          "current_key": "AIzaSyD8FysDzhn_yrVnKhp6_J5i_iEWUguYmBE"
         }
       ],
       "services": {

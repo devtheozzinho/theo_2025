@@ -5,20 +5,18 @@ class ButtomForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: TextButton(
-        onPressed: () {
-          Navigator.pushNamed(context, '/forgetPassword');
-        },
-        style: TextButton.styleFrom(
-          padding: EdgeInsets.zero,
-          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          textStyle: TextStyle(
-            decoration: TextDecoration.underline,
-          ),
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, '/forgetPassword');
+      },
+      style: TextButton.styleFrom(
+        padding: EdgeInsets.zero,
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        textStyle: TextStyle(
+          decoration: TextDecoration.underline,
         ),
-        child: Text('Esqueci minha senha'),
       ),
+      child: Text('Esqueci minha senha'),
     );
   }
 }

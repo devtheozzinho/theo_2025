@@ -1,11 +1,10 @@
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:academia/form/controller/form_controller.dart';
+import 'package:academia/login/controller/user_name.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import '../widgets/icon.dart';
 import '../widgets/Gradient.dart';
-// import '../controller/user_name.dart';
-// import '../../form/form_controller.dart';
-// import '../../form/formulario.dart';
-import '../widgets/elevatd_button.dart';
+import '../widgets/login_button.dart';
 import '../widgets/forget_password.dart';
 import '../widgets/cadastro_app.dart';
 
@@ -18,12 +17,12 @@ class MeuAplicativo extends StatefulWidget {
 
 class _MeuAplicativoState extends State<MeuAplicativo> {
   final TextEditingController emailcontroller = TextEditingController();
-  final TextEditingController passwordcontroller = TextEditingController();
+  final TextEditingController senhacontroller = TextEditingController();
 
   @override
   void dispose() {
-    emailcontroller.dispose();
-    passwordcontroller.dispose();
+    userController.dispose();
+    senhacontroller.dispose();
     super.dispose();
   }
 
@@ -31,18 +30,6 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
   Widget build(BuildContext context) {
     return Material(
       child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          title: Text(
-            'Rent Car',
-            style: GoogleFonts.poppins(
-              fontSize: 44,
-            ),
-          ),
-          centerTitle: true,
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.transparent,
-        ),
         body: Stack(
           children: [
             GradientApp(
@@ -53,53 +40,54 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        IconApp(
-                          cor: Colors.black,
-                          tamanho: 200,
-                          icone: Icons.directions_car,
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
+                        Image.asset('assets/carro.png'),
+                        SizedBox(height: 20),
                         SizedBox(
                           width: 280,
                           child: TextFormField(
-                              controller: emailcontroller,
+                              controller: userController,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
                                 hintText: 'Insira seu Email por favor',
                               ),
+                              validator: (value) {
+                                if (value == null || value.trim().isEmpty) {
+                                  return 'Este campo é obrigatório';
+                                }
+                                return null;
+                              },
                               textAlign: TextAlign.center),
                         ),
                         SizedBox(height: 16),
                         SizedBox(
                           width: 280,
                           child: TextFormField(
-                            controller: passwordcontroller,
+                            controller: senhacontroller,
                             decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12.0),
                               ),
                               hintText: 'Insira sua senha por favor',
                             ),
+                            validator: (value) {
+                              if (value == null || value.trim().isEmpty) {
+                                return 'Este campo é obriatório';
+                              }
+                              return null;
+                            },
                             textAlign: TextAlign.center,
                           ),
                         ),
-                        SizedBox(
-                          height: 10,
+                        SizedBox(height: 10),
+                        LoginApp(
+                          email: emailController.text.trim(),
+                          senha: senhacontroller.text.trim(),
                         ),
-                        ElevatedButtomApp(
-                            emailcontroller: emailcontroller,
-                            passwordcontroller: passwordcontroller),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        SizedBox(height: 10),
                         CadastroApp(),
-                        SizedBox(
-                          height: 10,
-                        ),
+                        SizedBox(height: 10),
                         ButtomForgetPassword(),
                       ],
                     ),

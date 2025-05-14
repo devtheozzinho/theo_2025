@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 final nomeController = TextEditingController();
@@ -10,7 +11,7 @@ void showMessage(String mensagem, BuildContext context) {
   ScaffoldMessenger.of(context).showSnackBar(
     SnackBar(
       content: Text(mensagem),
-      duration: Duration(seconds: 10),
+      duration: Duration(seconds: 5),
     ),
   );
 }
@@ -76,4 +77,30 @@ void validatorCadastro(BuildContext context) {
   }
 
   showMessage('Cadastro realizado com sucesso', context);
+}
+
+Future<void> formUser() async {
+  try {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: senhaController.text.trim(),
+    );
+    print('Usuário cadastrado com sucesso');
+  } on FirebaseAuthException catch (e) {
+    String mensagem = '';
+    switch (e.code) {
+      case 'email-already-in-use':
+        mensagem = 'E-mail já está sendo usado';
+        break;
+      case 'invalid-email':
+        mensagem = 'Este e-mail é inválido';
+        break;
+      case 'weak-password':
+        mensagem = 'Senha fraca, use pelo menos 6 caracteres';
+        break;
+      default:
+        mensagem = 'Erro: ${e.message}';
+    }
+    print(mensagem);
+  }
 }

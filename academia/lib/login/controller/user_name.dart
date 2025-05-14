@@ -1,27 +1,40 @@
 import 'package:academia/form/controller/form_controller.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class User {
-  String email = 'admin@email.com';
-  String password = '123456';
+final userController = TextEditingController();
+final senhaController = TextEditingController();
 
-  User(this.email, this.password);
-}
+Future<bool> login(String? email, String? senha) async {
+  try {
+    // if (email != null && senha != null) {
+    await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: emailController.text.trim(),
+      password: senhaController.text.trim(),
+    );
 
-void validatorLogin(BuildContext context, String email, String password) {
-  if (email.isEmpty || !email.contains('@')) {
-    showMessage('Por favor insira um e-mail válido', context);
-    return;
-  }
-  if (password.isEmpty || password.length < 6) {
-    showMessage('Por favor insira a senha correta', context);
-    return;
-  }
-  if (email == 'admin@email.com' && password == '123456') {
-    showMessage('Login realizado com sucesso', context);
-    return;
-  } else {
-    showMessage('Login inválido, por favor revise os campos', context);
-    return;
+    print('Login realizado com sucesso');
+    return true;
+    // } else {
+    //   print('E-mail ou senha null');
+    //   return false;
+    // }
+  } on FirebaseAuthException catch (e) {
+    String mensagem = '';
+    switch (e.code) {
+      case 'user-not-found':
+        mensagem = 'Usuário não encontrado. Cadastre-se primeiro.';
+        break;
+      case 'wrong-password':
+        mensagem = 'Senha incorreta.';
+        break;
+      case 'invalid-email':
+        mensagem = 'E-mail inválido.';
+        break;
+      default:
+        mensagem = 'Erro: ${e.message}';
+    }
+    print(mensagem);
+    return false;
   }
 }

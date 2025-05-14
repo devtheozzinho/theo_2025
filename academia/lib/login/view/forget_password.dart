@@ -21,15 +21,13 @@ class ForgetPassword extends StatelessWidget {
       body: GradientApp(
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
               const SizedBox(
-                height: kToolbarHeight + 0,
+                height: kToolbarHeight + 50,
               ),
               IconApp(
                 icone: Icons.lock,
-                cor: Colors.black,
-                tamanho: 200,
               ),
               const SizedBox(height: 24),
               SizedBox(

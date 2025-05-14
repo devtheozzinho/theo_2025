@@ -1,25 +1,18 @@
 import 'package:academia/firebase_options.dart';
+import 'package:academia/login/model/login_model.dart';
 import 'package:academia/login/view/login.dart';
-
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'cards/card_car.dart';
 import 'cards/Model/car_model.dart';
 import './form/formulario.dart';
 import './login/view/forget_password.dart';
-
-// import 'package:google_fonts/google_fonts.dart';
+import 'home/home.dart';
 
 void main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp(
-  //   options: FirebaseOptions(                                                                ///lembrar de ver isso depois
-  //     apiKey: 'AIzaSyD8FysDzhn_yrVnKhp6_J5i_iEWUguYmBE',
-  //     appId: '1:993754607160:android:c36c72dad7dd138cb400cd',
-  //     messagingSenderId: '993754607160',
-  //     projectId: 'rent-car-original',
-  //     storageBucket: 'rent-car-original.firebasestorage.app',
-  //   ),
-  // );
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -45,6 +38,14 @@ class MyApp extends StatelessWidget {
 
     final Car car = Car.fromJson(jsonCarro);
 
+    final Map<String, dynamic> jsonUsuario = {
+      "id": 1,
+      "user": "usuario@email.com",
+      "senha": "senhaSegura123"
+    };
+
+    final UserLogin userLogins = UserLogin.fromJson(jsonUsuario);
+
     return MaterialApp(
       title: 'Rent car',
       theme: ThemeData(
@@ -58,6 +59,7 @@ class MyApp extends StatelessWidget {
         '/form': (context) => Formulario(),
         '/cards': (context) => CardProduct(detalhes: car),
         '/forgetPassword': (context) => ForgetPassword(),
+        '/home': (context) => HomePage()
       },
     );
   }

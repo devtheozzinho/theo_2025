@@ -125,7 +125,7 @@ class Formulario extends StatelessWidget {
                           ),
                         ),
                         SizedBox(height: 24),
-                        ConfirFormUSer(),
+                        ConfirmFormUser(),
                       ],
                     ),
                   ),

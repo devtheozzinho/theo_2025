@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class IconApp extends StatelessWidget {
   final IconData icone;
-  final Color cor;
-  final double tamanho;
+  final Color? cor;
+  final double? tamanho;
 
   const IconApp({
     super.key,
-    this.cor = Colors.black,
+    this.cor,
     required this.icone,
     this.tamanho = 200,
   });
@@ -16,8 +16,8 @@ class IconApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Icon(
       icone,
-      color: Colors.black,
-      size: tamanho,
+      color: cor ?? Colors.black,
+      size: tamanho ?? 200,
     );
   }
 }

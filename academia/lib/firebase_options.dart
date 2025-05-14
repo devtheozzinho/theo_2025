@@ -26,20 +26,14 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -58,5 +52,24 @@ class DefaultFirebaseOptions {
     messagingSenderId: '993754607160',
     projectId: 'rent-car-original',
     storageBucket: 'rent-car-original.firebasestorage.app',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyAOSTGhK9pQoboZMraWSZzcnmxzpWDgzc8',
+    appId: '1:993754607160:ios:a2ad8a2e37b18bfbb400cd',
+    messagingSenderId: '993754607160',
+    projectId: 'rent-car-original',
+    storageBucket: 'rent-car-original.firebasestorage.app',
+    iosBundleId: 'com.example.academia',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyBeQiw-yZec-0ZtJRMrvWOdMQIfj1kA7M4',
+    appId: '1:993754607160:web:ebf42ec0487d4579b400cd',
+    messagingSenderId: '993754607160',
+    projectId: 'rent-car-original',
+    authDomain: 'rent-car-original.firebaseapp.com',
+    storageBucket: 'rent-car-original.firebasestorage.app',
+    measurementId: 'G-172WXXDWRV',
   );
 }

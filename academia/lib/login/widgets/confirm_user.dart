@@ -1,8 +1,8 @@
+import 'package:academia/form/controller/form_controller.dart';
 import 'package:flutter/material.dart';
-// import '../../form/form_controller.dart';
 
-class ConfirFormUSer extends StatelessWidget {
-  const ConfirFormUSer({super.key});
+class ConfirmFormUser extends StatelessWidget {
+  const ConfirmFormUser({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +15,9 @@ class ConfirFormUSer extends StatelessWidget {
         ),
         onPressed: () {
           Navigator.pushNamed(context, '/cards');
-          // validatorCadastro(context);
+          formUser();
         },
-        label: Text(
-          'Confirmar cadastro',
-        ),
+        label: Text('Confirmar cadastro'),
         style: ElevatedButton.styleFrom(
           minimumSize: Size(150, 40),
           shape: RoundedRectangleBorder(
