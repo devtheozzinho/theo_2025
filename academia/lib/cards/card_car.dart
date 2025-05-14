@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../home/widgets/bottom_navigation.dart';
 import '../login/widgets/gradient.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../login/widgets/search_car.dart';
 import 'Model/car_model.dart';
 
 class CardProduct extends StatefulWidget {
@@ -17,6 +18,19 @@ class CardProduct extends StatefulWidget {
 class _CardProductState extends State<CardProduct> {
   int currentIndex = 0;
 
+  String getTitle(int index) {
+    switch (index) {
+      case 0:
+        return 'Home';
+      case 1:
+        return 'Busca';
+      case 2:
+        return 'Modelos';
+      default:
+        return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final car = widget.detalhes;
@@ -26,7 +40,7 @@ class _CardProductState extends State<CardProduct> {
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           title: Text(
-            'Modelos',
+            getTitle(currentIndex),
             style: GoogleFonts.poppins(
                 fontSize: 32, color: Colors.black, fontWeight: FontWeight.w600),
           ),
@@ -37,6 +51,8 @@ class _CardProductState extends State<CardProduct> {
         body: IndexedStack(
           index: currentIndex,
           children: [
+            HomePage(),
+            SearchCar(),
             GradientApp(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30, vertical: 130),
