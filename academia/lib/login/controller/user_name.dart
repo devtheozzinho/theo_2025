@@ -1,6 +1,7 @@
 import 'package:academia/form/controller/form_controller.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../../form/controller/form_controller.dart';
 
 final userController = TextEditingController();
 final senhaController = TextEditingController();
