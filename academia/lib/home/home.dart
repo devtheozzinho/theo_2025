@@ -7,15 +7,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        // appBar: AppBar(
-        //   title: Text(''),
-        //   centerTitle: true,
-        // ),
-        // body: GradientApp(
-        //   child: Center(
-        //     child: Column(),
-        //   ),
-        // ),
-        );
+      body: GradientApp(
+        child: Column(),
+      ),
+    );
   }
 }

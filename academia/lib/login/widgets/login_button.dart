@@ -11,38 +11,42 @@ class LoginApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(16),
-          ),
-          ElevatedButton.icon(
-            onPressed: () async {
-              if (_formKey.currentState!.validate()) {
-                _formKey.currentState!.save(); // salva email e senha
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Padding(
+          padding: EdgeInsets.all(16),
+        ),
+        ElevatedButton.icon(
+          onPressed: () async {
+            if (_formKey.currentState!.validate()) {
+              bool sucesso = await login(email!, senha!);
+              if (sucesso) {
+                Navigator.pushNamed(context, '/cards');
+              } else {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Email ou senha incorretos'),
+                  ),
+                );
               }
-              login(email, senha);
-              Navigator.pushNamed(context, '/cards');
-            },
-            icon: Icon(
-              Icons.login,
-              color: Colors.white,
-            ),
-            label: Text('Entrar'),
-            style: ElevatedButton.styleFrom(
-                minimumSize: Size(150, 40),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                foregroundColor: Colors.white,
-                backgroundColor: Color.fromARGB(255, 39, 38, 73)),
+            }
+          },
+          icon: Icon(
+            Icons.login,
+            color: Colors.white,
           ),
-        ],
-      ),
+          label: Text('Entrar'),
+          style: ElevatedButton.styleFrom(
+              minimumSize: Size(150, 40),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              foregroundColor: Colors.white,
+              backgroundColor: Color.fromARGB(255, 39, 38, 73)),
+        ),
+      ],
     );
   }
 }
