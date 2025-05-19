@@ -59,7 +59,7 @@ class MyApp extends StatelessWidget {
         '/form': (context) => Formulario(),
         '/cards': (context) => CardProduct(detalhes: car),
         '/forgetPassword': (context) => ForgetPassword(),
-        // '/home': (context) => HomePage()
+        '/home': (context) => HomePage()
       },
     );
   }
