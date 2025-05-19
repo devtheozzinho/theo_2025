@@ -1,11 +1,18 @@
-import 'package:academia/login/login.dart';
+import 'package:academia/firebase_options.dart';
+import 'package:academia/login/model/login_model.dart';
+import 'package:academia/login/view/login.dart';
+import 'package:firebase_core/firebase_core.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'cards/widget.dart';
+import 'cards/card_car.dart';
 import 'cards/Model/car_model.dart';
 import './form/formulario.dart';
-// import 'package:google_fonts/google_fonts.dart';
+import './login/view/forget_password.dart';
+import 'home/home.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -31,20 +38,29 @@ class MyApp extends StatelessWidget {
 
     final Car car = Car.fromJson(jsonCarro);
 
+    final Map<String, dynamic> jsonUsuario = {
+      "id": 1,
+      "user": "usuario@email.com",
+      "senha": "senhaSegura123"
+    };
+
+    final UserLogin userLogins = UserLogin.fromJson(jsonUsuario);
+
     return MaterialApp(
-        title: 'Rent car',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
-          useMaterial3: true,
-        ),
-        debugShowCheckedModeBanner: false,
-        initialRoute: 'homepage',
-        routes: {
-          'homepage': (context) => MeuAplicativo(),
-          '/form': (context) => Formulario(),
-          'cards': (context) => CardProduct(
-                detalhes: car,
-              ),
-        });
+      title: 'Rent car',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
+        useMaterial3: true,
+      ),
+      debugShowCheckedModeBanner: false,
+      initialRoute: 'homepage',
+      routes: {
+        'homepage': (context) => MeuAplicativo(),
+        '/form': (context) => Formulario(),
+        '/cards': (context) => CardProduct(detalhes: car),
+        '/forgetPassword': (context) => ForgetPassword(),
+        // '/home': (context) => HomePage()
+      },
+    );
   }
 }
