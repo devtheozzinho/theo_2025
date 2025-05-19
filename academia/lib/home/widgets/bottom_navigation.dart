@@ -18,16 +18,16 @@ class NavigationButtom extends StatelessWidget {
       type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: 'Home',
+          icon: Icon(Icons.car_rental),
+          label: 'Carros',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.search),
           label: 'Busca',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.car_rental),
-          label: 'Carros',
+          icon: Icon(Icons.home),
+          label: 'Home',
         ),
       ],
     );
