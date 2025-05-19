@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../controller/user_name.dart';
 
 class LoginApp extends StatelessWidget {
   final _formKey = GlobalKey<FormState>();
@@ -20,18 +19,18 @@ class LoginApp extends StatelessWidget {
         ),
         ElevatedButton.icon(
           onPressed: () async {
-            if (_formKey.currentState!.validate()) {
-              bool sucesso = await login(email!, senha!);
-              if (sucesso) {
-                Navigator.pushNamed(context, '/cards');
-              } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Email ou senha incorretos'),
-                  ),
-                );
-              }
-            }
+            // if (_formKey.currentState!.validate()) {
+            //   bool sucesso = await (email!, senha!);
+            //   if (sucesso) {
+            //     Navigator.pushNamed(context, '/cards');
+            //   } else {
+            //     ScaffoldMessenger.of(context).showSnackBar(
+            //       SnackBar(
+            //         content: Text('Email ou senha incorretos'),
+            //       ),
+            //     );
+            //   }
+            // }
           },
           icon: Icon(
             Icons.login,
