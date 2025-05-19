@@ -18,10 +18,11 @@ class MeuAplicativo extends StatefulWidget {
 class _MeuAplicativoState extends State<MeuAplicativo> {
   final TextEditingController emailcontroller = TextEditingController();
   final TextEditingController senhacontroller = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    userController.dispose();
+    emailcontroller.dispose();
     senhacontroller.dispose();
     super.dispose();
   }
@@ -37,59 +38,62 @@ class _MeuAplicativoState extends State<MeuAplicativo> {
                 child: SafeArea(
                   child: SingleChildScrollView(
                     padding: EdgeInsets.all(10),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/carro.png'),
-                        SizedBox(height: 20),
-                        SizedBox(
-                          width: 280,
-                          child: TextFormField(
-                              controller: userController,
+                    child: Form(
+                      key: _formKey,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Image.asset('assets/carro.png'),
+                          SizedBox(height: 20),
+                          SizedBox(
+                            width: 280,
+                            child: TextFormField(
+                                controller: emailcontroller,
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(12.0),
+                                  ),
+                                  hintText: 'Insira seu Email por favor',
+                                ),
+                                validator: (value) {
+                                  if (value == null || value.trim().isEmpty) {
+                                    return 'Este campo é obrigatório';
+                                  }
+                                  return null;
+                                },
+                                textAlign: TextAlign.center),
+                          ),
+                          SizedBox(height: 16),
+                          SizedBox(
+                            width: 280,
+                            child: TextFormField(
+                              controller: senhacontroller,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                hintText: 'Insira seu Email por favor',
+                                hintText: 'Insira sua senha por favor',
                               ),
                               validator: (value) {
                                 if (value == null || value.trim().isEmpty) {
-                                  return 'Este campo é obrigatório';
+                                  return 'Este campo é obriatório';
                                 }
                                 return null;
                               },
-                              textAlign: TextAlign.center),
-                        ),
-                        SizedBox(height: 16),
-                        SizedBox(
-                          width: 280,
-                          child: TextFormField(
-                            controller: senhacontroller,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              hintText: 'Insira sua senha por favor',
+                              textAlign: TextAlign.center,
                             ),
-                            validator: (value) {
-                              if (value == null || value.trim().isEmpty) {
-                                return 'Este campo é obriatório';
-                              }
-                              return null;
-                            },
-                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        SizedBox(height: 10),
-                        LoginApp(
-                          email: emailController.text.trim(),
-                          senha: senhacontroller.text.trim(),
-                        ),
-                        SizedBox(height: 10),
-                        CadastroApp(),
-                        SizedBox(height: 10),
-                        ButtomForgetPassword(),
-                      ],
+                          SizedBox(height: 10),
+                          LoginApp(
+                            email: emailcontroller.text.trim(),
+                            senha: senhacontroller.text.trim(),
+                          ),
+                          SizedBox(height: 10),
+                          CadastroApp(),
+                          SizedBox(height: 10),
+                          ButtomForgetPassword(),
+                        ],
+                      ),
                     ),
                   ),
                 ),
